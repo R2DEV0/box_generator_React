@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import GenerateBoxForm from './components/box';
+import DisplayBox from './components/boxDisplay';
+
 
 function App() {
+  const [currentDisplay, setCurrentDisplay] = useState([]);
+
+  // const newBox = ( newDisplay ) => {
+  //   setCurrentDisplay( newDisplay );
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GenerateBoxForm setCurrentDisplay={ setCurrentDisplay } currentDisplay={ currentDisplay }/>
+      <DisplayBox display={currentDisplay} />
     </div>
   );
 }
